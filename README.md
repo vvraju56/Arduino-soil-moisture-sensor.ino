@@ -10,6 +10,41 @@ A complete IoT project for monitoring soil moisture and automating irrigation.
 - **Relay Module** (for motor control)
 - **DC Motor/Water Pump**
 
+## Connection Diagram
+
+```
+┌─────────────┐         ┌─────────────┐         ┌─────────────┐
+│   Arduino   │         │   Soil      │         │    Flow     │
+│    Mega     │────────▶│  Moisture   │         │   Sensor    │
+│             │         │   Sensor    │         │   (YF-S201)  │
+│  Pin A0 ────┤         └─────────────┘         │   Pin 2     │
+│  Pin 2  ────┤                                 └─────────────┘
+│  Pin 3  ────┤                                        │
+└──────┬──────┘                                        │
+       │                                               │
+       ▼                                               │
+┌─────────────┐                                        │
+│    Relay    │◀───────────────────────────────────────┘
+│   Module    │         (Pulse Output)
+│             │
+│  Pin 3 ─────┤
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│ DC Motor/   │
+│ Water Pump  │
+└─────────────┘
+
+       │
+       ▼ USB
+┌─────────────┐
+│     PC      │
+│  (Python    │
+│  Script)    │
+└─────────────┘
+```
+
 ## Hardware Setup
 
 | Pin | Component |
